@@ -11,3 +11,16 @@ before_install:
 
 script:
   - docker run vnscriptkid/react-app npm run test:nowatch -- --watchAll=false --coverage --watch=false
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "docker-react-example"
+  env: "DockerReactExample-env"
+  bucket_name: elasticbeanstalk-us-east-1-931596232326
+  bucket_path: "docker-react-example"
+  on:
+    branch: master # only deploy if code is pushed to master branch
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
