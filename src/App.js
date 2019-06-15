@@ -17,6 +17,7 @@ function App() {
           rel="noopener noreferrer"  
         >
            It works now
+           A new feature has been added
         </a>
       </header>
     </div>
