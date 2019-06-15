@@ -1,5 +1,8 @@
 sudo: required
 
+env:
+  - CI=true
+
 services:
   - docker
 
@@ -7,4 +10,4 @@ before_install:
   - docker build -f Dockerfile.dev -t vnscriptkid/react-app .
 
 script:
-  - docker run vnscriptkid/react-app npm run test -- --coverage
+  - docker run vnscriptkid/react-app npm run test -- --watchAll=false --coverage --watch=false
